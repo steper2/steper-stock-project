@@ -1,321 +1,367 @@
+
 <!doctype html>
 <html lang="ko" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Steper Stock — Single File</title>
-  <meta name="description" content="한 파일로 끝나는 주식 리서치 저장소 (오프라인 가능, 로컬 파일에서도 동작)">
-  <style>/* inline minimal styles (same as bundle) */
-:root{--bg:#0b0e14;--card:#121722;--muted:#94a3b8;--text:#e2e8f0;--accent:#60a5fa;--border:#233047}
-:root[data-theme="light"]{--bg:#f7fafc;--card:#fff;--muted:#475569;--text:#0f172a;--border:#e2e8f0}
+  <title>Stock Research Repo</title>
+  <meta name="description" content="내 주식 리서치 자료를 정리/검색/공유하는 정적 웹사이트 템플릿">
+  <meta name="theme-color" content="#0b0e14">
+  <style>/* inlined clean theme */
+:root{--bg:#0b0e14;--card:#121722;--muted:#8a98ad;--text:#e5eaf1;--accent:#60a5fa;--border:#2a3852}
+:root[data-theme="light"]{--bg:#f7fafc;--card:#fff;--muted:#5a6473;--text:#0f172a;--border:#e5eaf1}
 *{box-sizing:border-box}html,body{height:100%}
 body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Apple SD Gothic Neo,Noto Sans KR,sans-serif}
 a{color:var(--accent);text-decoration:none}
-.app-header,.app-footer{border-bottom:1px solid var(--border);background:linear-gradient(180deg,rgba(13,18,28,.9),rgba(11,14,20,.9));padding:14px 20px;position:sticky;top:0;z-index:10}
+.app-header,.app-footer{border-bottom:1px solid var(--border);background:linear-gradient(180deg, rgba(13,18,28,.95), rgba(13,18,28,.9));padding:12px 16px;position:sticky;top:0;z-index:10}
 :root[data-theme="light"] .app-header,:root[data-theme="light"] .app-footer{background:linear-gradient(180deg,#fff,#f8fafc)}
 .app-footer{border-top:1px solid var(--border);border-bottom:none;text-align:center}
-.logo{width:28px;height:28px}
-.app-title{margin:0 0 0 6px;font-size:20px}
-.top-nav{display:flex;gap:10px;flex-wrap:wrap}
-.top-nav a{background:#0f1520;color:var(--text);border:1px solid var(--border);padding:8px 12px;border-radius:10px}
-:root[data-theme="light"] .top-nav a{background:#f1f5f9}
-.top-nav a.active{border-color:var(--accent);color:var(--accent)}
-main{max-width:1100px;margin:24px auto;padding:0 16px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;box-shadow:0 8px 30px rgba(0,0,0,.25)}
-.row{display:flex}.wrap{flex-wrap:wrap}.gap-s{gap:8px}.justify-between{justify-content:space-between}.align-center{align-items:center}.mt-s{margin-top:12px}
-.grid{display:grid;gap:16px}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:900px){.grid-2{grid-template-columns:1fr}}
-input,textarea,select,button{background:#0f1520;color:var(--text);border:1px solid var(--border);border-radius:10px;padding:10px 12px}
+.logo{width:24px;height:24px}
+.app-title{margin:0 0 0 6px;font-size:18px}
+.top-nav{display:flex;gap:8px;flex-wrap:wrap}
+.top-nav button{background:#121826;color:var(--text);border:1px solid var(--border);padding:6px 10px;border-radius:10px}
+:root[data-theme="light"] .top-nav button{background:#f1f5f9}
+.top-nav button.active{border-color:var(--accent);color:var(--accent)}
+main{max-width:1000px;margin:20px auto;padding:0 14px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.row{display:flex}.wrap{flex-wrap:wrap}.gap-s{gap:8px}.justify-between{justify-content:space-between}.align-center{align-items:center}.mt-s{margin-top:10px}
+.grid{display:grid;gap:14px}.grid-2{grid-template-columns:repeat(2, minmax(0,1fr))}
+@media(max-width:900px){.grid-2{grid-template-columns:1fr}}
+input,textarea,select,button{background:#0f1520;color:var(--text);border:1px solid var(--border);border-radius:10px;padding:8px 10px}
 :root[data-theme="light"] input,:root[data-theme="light"] textarea,:root[data-theme="light"] select,:root[data-theme="light"] button{background:#fff}
 button{cursor:pointer}button.primary{background:var(--accent);color:#0b0e14;border-color:transparent;font-weight:600}
 button.ghost{background:transparent;border:1px solid var(--border)}
 .table-wrap{overflow:auto;border:1px solid var(--border);border-radius:12px}
-table{border-collapse:separate;border-spacing:0;width:100%}th,td{padding:10px;border-bottom:1px solid var(--border);vertical-align:top}
+table{border-collapse:separate;border-spacing:0;width:100%}
+th,td{padding:8px;border-bottom:1px solid var(--border);vertical-align:top}
 th{position:sticky;top:0;background:#0f1520;text-align:left}:root[data-theme="light"] th{background:#f8fafc}
 .badge{display:inline-block;padding:2px 8px;border:1px solid var(--border);border-radius:999px;font-size:12px;color:var(--accent);margin-right:4px}
-.muted{color:var(--muted)}.note-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:0;list-style:none}
-@media(max-width:900px){.note-cards{grid-template-columns:1fr}}.note-cards li{border:1px solid var(--border);border-radius:12px;padding:12px;background:#0f1520}
+.muted{color:var(--muted)}
+.section{display:none}.section.visible{display:block}
+.note-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:0;list-style:none}
+@media(max-width:900px){.note-cards{grid-template-columns:1fr}}
+.note-cards li{border:1px solid var(--border);border-radius:12px;padding:10px;background:#0f1520}
 :root[data-theme="light"] .note-cards li{background:#fff}
+kbd{border:1px solid var(--border);padding:0 6px;border-radius:6px;background:#0f1520}
 @media print{body{background:#fff;color:#000}.app-header,.app-footer{display:none}main{max-width:800px}.card{box-shadow:none;border-color:#bbb}a{color:#000;text-decoration:underline}}</style>
 </head>
 <body>
   <header class="app-header">
     <div class="row justify-between align-center wrap">
-      <div class="row align-center gap-s">
-        <span class="logo">📚</span>
-        <h1 id="brandTitle" class="app-title">Steper Stock</h1>
-      </div>
+      <h1 class="app-title">📚 Stock Research Repo</h1>
       <nav class="top-nav" aria-label="주요 섹션">
-        <a href="#/" data-route="/">홈</a>
-        <a href="#/watchlist" data-route="/watchlist">워치리스트</a>
-        <a href="#/notes" data-route="/notes">노트</a>
-        <a href="#/links" data-route="/links">링크</a>
-        <a href="#/settings" data-route="/settings">설정</a>
+        <button data-section="dashboard" class="active" title="g d">대시보드</button>
+        <button data-section="watchlist" title="g w">워치리스트</button>
+        <button data-section="notes" title="g n">리서치 노트</button>
+        <button data-section="links" title="g l">자료 링크</button>
+        <button data-section="settings">백업/설정</button>
       </nav>
       <div class="row gap-s">
-        <button id="langToggle" class="ghost" title="언어 KR/EN">KR/EN</button>
         <button id="themeToggle" class="ghost" aria-label="테마 전환">🌓</button>
       </div>
     </div>
   </header>
 
-  <main id="app"></main>
+  <main>
+    <section id="dashboard" class="section visible">
+      <div class="grid">
+        <div class="card">
+          <h2>빠른 추가</h2>
+          <div class="grid grid-2">
+            <div>
+              <h3>티커 추가</h3>
+              <form id="quickAddTicker" class="stack gap-s">
+                <input required name="symbol" placeholder="티커 (예: AAPL, NVDA)" autocomplete="off">
+                <input name="name" placeholder="회사명 (선택)">
+                <input name="sector" placeholder="섹터 (선택)">
+                <input name="tags" placeholder="태그 (쉼표구분)">
+                <input name="target" type="number" step="0.01" placeholder="목표가 (선택)">
+                <textarea name="thesis" rows="3" placeholder="간단 투자 아이디어 (선택)"></textarea>
+                <button type="submit" class="primary">추가</button>
+              </form>
+            </div>
+            <div>
+              <h3>노트 추가</h3>
+              <form id="quickAddNote" class="stack gap-s">
+                <input required name="title" placeholder="제목">
+                <input name="symbol" placeholder="관련 티커 (선택)">
+                <input name="tags" placeholder="태그 (쉼표구분)">
+                <textarea required name="content" rows="5" placeholder="핵심 요약 / 학습 내용 / 리스크 등"></textarea>
+                <button type="submit" class="primary">추가</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>최근 노트</h2>
+          <ul id="recentNotes" class="list"></ul>
+        </div>
+
+        <div class="card">
+          <h2>검색 <span class="muted">(단축키: / )</span></h2>
+          <input id="globalSearch" placeholder="티커/회사/태그/노트 내용 검색…">
+          <ul id="searchResults" class="list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="watchlist" class="section">
+      <div class="card">
+        <div class="row justify-between align-center">
+          <h2>워치리스트</h2>
+          <div class="row gap-s wrap">
+            <input id="watchlistFilter" placeholder="티커/태그/섹터 필터">
+            <button id="exportCSV">CSV 내보내기</button>
+            <label class="ghost"><input type="file" id="csvUpload" accept=".csv,text/csv" hidden> CSV 업로드</label>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table id="watchlistTable">
+            <thead>
+              <tr>
+                <th data-sort="symbol">티커</th>
+                <th data-sort="name">회사명</th>
+                <th data-sort="sector">섹터</th>
+                <th>태그</th>
+                <th data-sort="target" class="num">목표가</th>
+                <th>아이디어</th>
+                <th>메모</th>
+                <th>작업</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="row justify-between align-center mt-s">
+          <div class="muted" id="watchlistMeta"></div>
+          <div class="pagination">
+            <button id="prevPage" class="ghost">이전</button>
+            <span id="pageInfo" class="muted"></span>
+            <button id="nextPage" class="ghost">다음</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="notes" class="section">
+      <div class="card">
+        <div class="row justify-between align-center">
+          <h2>리서치 노트</h2>
+          <div class="row gap-s wrap">
+            <input id="noteFilter" placeholder="제목/본문/태그/티커 검색">
+            <button id="exportMd" class="ghost">Markdown 내보내기</button>
+          </div>
+        </div>
+        <ul id="notesList" class="note-cards"></ul>
+      </div>
+    </section>
+
+    <section id="links" class="section">
+      <div class="card">
+        <h2>자료 링크</h2>
+        <form id="addLink" class="row gap-s wrap">
+          <input required name="title" placeholder="제목">
+          <input required name="url" placeholder="URL (https://…)">
+          <input name="desc" placeholder="설명 (선택)">
+          <input name="tags" placeholder="태그 (쉼표구분)">
+          <button type="submit">추가</button>
+        </form>
+        <ul id="linksList" class="list mt-s"></ul>
+      </div>
+    </section>
+
+    <section id="settings" class="section">
+      <div class="card">
+        <h2>백업 & 복원</h2>
+        <div class="row gap-s wrap">
+          <button id="downloadJSON" class="primary">전체 데이터 JSON 다운로드</button>
+          <label class="ghost"><input type="file" id="uploadJSON" accept="application/json" hidden> JSON 불러오기</label>
+          <button id="remoteSync">원격 동기화(data/seed.json)</button>
+        </div>
+        <p class="muted mt-s">• 초기 로드 시 로컬 데이터가 비어 있으면 <code>data/seed.json</code>을 자동 시도합니다.<br>• “원격 동기화”는 현재 데이터를 <code>data/seed.json</code>으로 교체합니다.</p>
+      </div>
+    </section>
+  </main>
 
   <footer class="app-footer">
-    <span>© 2025 Steper Stock · Single File</span>
+    <span>© 2025 Stock Research Repo · Static HTML</span>
   </footer>
 
-  <script>/* inline SPA with hash router + brand + i18n (no service worker) */
-const STORAGE_KEY="steper_stock_v1_single";const SETTINGS_KEY="steper_brand_settings_v1_single";const $=s=>document.querySelector(s),$$=s=>Array.from(document.querySelectorAll(s));
-function applyTheme(t){document.documentElement.setAttribute("data-theme",t);localStorage.setItem("theme",t)}
-applyTheme(localStorage.getItem("theme")||"dark");
-$("#themeToggle").addEventListener("click",()=>applyTheme((localStorage.getItem("theme")||"dark")==="dark"?"light":"dark"));
+  <script>
+  const STORAGE_KEY="steper_stock_repo_v1";
+  const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
+  function load(){ try{return JSON.parse(localStorage.getItem(STORAGE_KEY))||{tickers:[],notes:[],links:[],createdAt:Date.now()}}catch{return {tickers:[],notes:[],links:[],createdAt:Date.now()}}}
+  function save(st){ localStorage.setItem(STORAGE_KEY, JSON.stringify(st)); }
+  let state=load();
 
-const dict={ko:{home_quick_add:"빠른 추가",add_ticker:"티커 추가",add_note:"노트 추가",ticker_placeholder:"티커 (예: AAPL, NVDA)",company_name:"회사명 (선택)",sector:"섹터 (선택)",tags:"태그 (쉼표구분)",target:"목표가 (선택)",thesis:"간단 투자 아이디어 (선택)",add:"추가",recent_notes:"최근 노트",search:"검색",watchlist:"워치리스트",filter:"티커/태그/섹터 필터",export_csv:"CSV 내보내기",import_csv:"CSV 업로드 (워치리스트 일괄 추가)",note_title:"제목",note_symbol:"관련 티커 (선택)",note_content:"핵심 요약 / 학습 내용 / 리스크 등",links:"자료 링크",settings:"설정",brand_title:"브랜드/테마 설정",brand_name:"브랜드 이름",accent_color:"강조 색상(hex)",save:"저장",ticker_detail:"티커 상세",print_report:"리포트 인쇄",open_chart:"차트",notes:"노트",delete:"삭제",edit:"편집"},
-en:{home_quick_add:"Quick Add",add_ticker:"Add Ticker",add_note:"Add Note",ticker_placeholder:"Ticker (e.g., AAPL, NVDA)",company_name:"Company (optional)",sector:"Sector (optional)",tags:"Tags (comma-separated)",target:"Target (optional)",thesis:"Idea (optional)",add:"Add",recent_notes:"Recent Notes",search:"Search",watchlist:"Watchlist",filter:"Filter by ticker/tags/sector",export_csv:"Export CSV",import_csv:"Upload CSV (bulk add)",note_title:"Title",note_symbol:"Related ticker (optional)",note_content:"Summary / insights / risks",links:"Links",settings:"Settings",brand_title:"Brand & Theme",brand_name:"Brand name",accent_color:"Accent color (hex)",save:"Save",ticker_detail:"Ticker Detail",print_report:"Print Report",open_chart:"Chart",notes:"Notes",delete:"Delete",edit:"Edit"}};
-let lang=localStorage.getItem("lang")||"ko";function t(k){return (dict[lang]&&dict[lang][k])||k}
-$("#langToggle").addEventListener("click",()=>{lang=lang==="ko"?"en":"ko";localStorage.setItem("lang",lang);router()});
+  function applyTheme(t){ document.documentElement.setAttribute("data-theme", t); localStorage.setItem("theme", t); }
+  applyTheme(localStorage.getItem("theme")||"dark");
+  $("#themeToggle").addEventListener("click",()=>applyTheme((localStorage.getItem("theme")||"dark")==="dark"?"light":"dark"));
 
-function loadSettings(){try{return Object.assign({brandName:"Steper Stock",accent:"#60a5fa"}, JSON.parse(localStorage.getItem(SETTINGS_KEY)||"{}"))}catch(_){return {brandName:"Steper Stock",accent:"#60a5fa"}}}
-function saveSettings(s){localStorage.setItem(SETTINGS_KEY, JSON.stringify(s))}
-function applyBrand(s){$("#brandTitle").textContent=s.brandName;document.documentElement.style.setProperty("--accent", s.accent)}
-applyBrand(loadSettings());
+  $$(".top-nav button").forEach(btn=>btn.addEventListener("click",()=>showSection(btn.dataset.section)));
+  function showSection(id){
+    $$(".top-nav button").forEach(b=>b.classList.toggle("active", b.dataset.section===id));
+    $$(".section").forEach(s=>s.classList.remove("visible"));
+    document.getElementById(id).classList.add("visible");
+  }
 
-function loadState(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY))||{tickers:[],notes:[],links:[],createdAt:Date.now()}}catch(_){return {tickers:[],notes:[],links:[],createdAt:Date.now()}}}
-function saveState(st){localStorage.setItem(STORAGE_KEY, JSON.stringify(st))}
-let state=loadState();
+  (async function seedOnce(){
+    if(state.tickers.length||state.notes.length||state.links.length) return;
+    try{ const res=await fetch('data/seed.json?ts='+Date.now(),{cache:'no-store'});
+      if(res.ok){ const s=await res.json(); if(s && (s.tickers||s.notes||s.links)){ state=s; save(state); }}
+    }catch(_){}
+    renderAll();
+  })();
 
-const routes={"/":renderHome,"/watchlist":renderWatchlist,"/notes":renderNotes,"/links":renderLinks,"/settings":renderSettings,"/ticker/:symbol":renderTickerDetail};
-function parseRoute(hash){const p=(hash.replace(/^#/,"")||"/").split("/").filter(Boolean);return (p[0]==="ticker"&&p[1])?{route:"/ticker/:symbol",params:{symbol:decodeURIComponent(p[1]).toUpperCase()}}:{route: (hash.replace(/^#/,"")||"/") in routes ? (hash.replace(/^#/,"")||"/") : "/", params:{}}}
-function router(){const {route,params}=parseRoute(location.hash);$$(".top-nav a").forEach(a=>a.classList.toggle("active", a.getAttribute("href")==="#"+route));$("#app").innerHTML=routes[route](params);postRender(route,params)}
-window.addEventListener("hashchange",router);window.addEventListener("load",router);
+  function bindDashboard(){
+    document.getElementById("quickAddTicker").addEventListener("submit",(e)=>{
+      e.preventDefault();
+      const fd=new FormData(e.target);
+      const tk={id:crypto.randomUUID(),symbol:fd.get('symbol').trim().toUpperCase(),name:(fd.get('name')||'').trim(),sector:(fd.get('sector')||'').trim(),tags:(fd.get('tags')||'').split(',').map(s=>s.trim()).filter(Boolean),target:fd.get('target')?Number(fd.get('target')):null,thesis:(fd.get('thesis')||'').trim(),notes:'',createdAt:Date.now(),updatedAt:Date.now()};
+      if(!tk.symbol) return alert('티커는 필수입니다.');
+      state.tickers.unshift(tk); save(state); renderWatchlist(); renderRecentNotes(); alert('추가되었습니다.'); e.target.reset();
+    });
+    document.getElementById("quickAddNote").addEventListener("submit",(e)=>{
+      e.preventDefault();
+      const fd=new FormData(e.target);
+      const note={id:crypto.randomUUID(),title:(fd.get('title')||'').trim(),symbol:(fd.get('symbol')||'').trim().toUpperCase(),tags:(fd.get('tags')||'').split(',').map(s=>s.trim()).filter(Boolean),content:(fd.get('content')||'').trim(),createdAt:Date.now(),updatedAt:Date.now()};
+      if(!note.title||!note.content) return alert('제목과 본문은 필수입니다.');
+      state.notes.unshift(note); save(state); renderRecentNotes(); renderNotesList(); e.target.reset();
+    });
+    document.addEventListener('keydown',(e)=>{ if(e.key==='/'){ e.preventDefault(); document.getElementById("globalSearch").focus(); }});
+    document.getElementById("globalSearch").addEventListener("input",(e)=>{
+      const q=e.target.value.trim().toLowerCase(); const list=document.getElementById("searchResults"); list.innerHTML=''; if(!q) return;
+      const inT=state.tickers.filter(t=>(t.symbol+t.name+t.sector+t.tags.join(',')+t.thesis+(t.notes||'')).toLowerCase().includes(q));
+      const inN=state.notes.filter(n=>(n.title+n.content+n.symbol+n.tags.join(',')).toLowerCase().includes(q));
+      const inL=state.links.filter(l=>(l.title+l.url+(l.desc||'')+l.tags.join(',')).toLowerCase().includes(q));
+      [...inT.map(t=>({type:'티커',label:`${t.symbol} ${t.name||''}`,extra:t.sector})),...inN.map(n=>({type:'노트',label:n.title,extra:n.symbol})),...inL.map(l=>({type:'링크',label:l.title,extra:l.url}))].slice(0,20).forEach(r=>{
+        const li=document.createElement('li'); li.innerHTML=`<span class="badge">${r.type}</span> <strong>${r.label}</strong> <span class="muted">${r.extra||''}</span>`; list.appendChild(li);
+      });
+    });
+  }
+  function renderRecentNotes(){
+    const ul=document.getElementById("recentNotes"); ul.innerHTML='';
+    state.notes.slice(0,8).forEach(n=>{ const li=document.createElement('li'); li.innerHTML=`<strong>${n.title}</strong> <span class="muted">· ${hDate(n.updatedAt)} ${n.symbol? '· '+n.symbol:''}</span><br>${n.content.slice(0,160)}${n.content.length>160?'…':''}`; ul.appendChild(li); });
+  }
 
-/* Views */
-function renderHome(){return `
-<section class="grid">
-  <div class="card">
-    <h2>${t("home_quick_add")}</h2>
-    <div class="grid grid-2">
-      <div>
-        <h3>${t("add_ticker")}</h3>
-        <form id="quickAddTicker" class="stack gap-s">
-          <input required name="symbol" placeholder="${t("ticker_placeholder")}" autocomplete="off">
-          <input name="name" placeholder="${t("company_name")}">
-          <input name="sector" placeholder="${t("sector")}">
-          <input name="tags" placeholder="${t("tags")}">
-          <input name="target" type="number" step="0.01" placeholder="${t("target")}">
-          <textarea name="thesis" rows="3" placeholder="${t("thesis")}"></textarea>
-          <button type="submit" class="primary">${t("add")}</button>
-        </form>
-      </div>
-      <div>
-        <h3>${t("add_note")}</h3>
-        <form id="quickAddNote" class="stack gap-s">
-          <input required name="title" placeholder="${t("note_title")}">
-          <input name="symbol" placeholder="${t("note_symbol")}">
-          <input name="tags" placeholder="${t("tags")}">
-          <textarea required name="content" rows="5" placeholder="${t("note_content")}"></textarea>
-          <button type="submit" class="primary">${t("add")}</button>
-        </form>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <h2>${t("recent_notes")}</h2>
-    <ul id="recentNotes" class="list"></ul>
-  </div>
-  <div class="card">
-    <h2>${t("search")} <span class="muted">( / )</span></h2>
-    <input id="globalSearch" placeholder="티커/회사/태그/노트 내용 검색…">
-    <ul id="searchResults" class="list"></ul>
-  </div>
-</section>`}
-function renderWatchlist(){return `
-<section class="card">
-  <div class="row justify-between align-center">
-    <h2>${t("watchlist")}</h2>
-    <div class="row gap-s wrap">
-      <input id="watchlistFilter" placeholder="${t("filter")}">
-      <button id="exportCSV">${t("export_csv")}</button>
-      <label class="ghost"><input type="file" id="csvUpload" accept=".csv,text/csv" hidden> ${t("import_csv")}</label>
-    </div>
-  </div>
-  <div class="table-wrap">
-    <table id="watchlistTable">
-      <thead>
-        <tr>
-          <th data-sort="symbol">티커</th>
-          <th data-sort="name">회사명</th>
-          <th data-sort="sector">섹터</th>
-          <th>태그</th>
-          <th data-sort="target" class="num">목표가</th>
-          <th>아이디어</th>
-          <th>메모</th>
-          <th>작업</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-  </div>
-  <div class="row justify-between align-center mt-s">
-    <div class="muted" id="watchlistMeta"></div>
-    <div class="pagination">
-      <button id="prevPage" class="ghost">이전</button>
-      <span id="pageInfo" class="muted"></span>
-      <button id="nextPage" class="ghost">다음</button>
-    </div>
-  </div>
-</section>`}
-function renderNotes(){return `
-<section class="card">
-  <div class="row justify-between align-center">
-    <h2>${t("notes")}</h2>
-    <input id="noteFilter" placeholder="제목/본문/태그/티커 검색">
-  </div>
-  <ul id="notesList" class="note-cards"></ul>
-</section>`}
-function renderLinks(){return `
-<section class="card">
-  <h2>${t("links")}</h2>
-  <form id="addLink" class="row gap-s wrap">
-    <input required name="title" placeholder="제목">
-    <input required name="url" placeholder="URL (https://…)">
-    <input name="desc" placeholder="설명 (선택)">
-    <input name="tags" placeholder="${t("tags")}">
-    <button type="submit">${t("add")}</button>
-  </form>
-  <ul id="linksList" class="list mt-s"></ul>
-</section>`}
-function renderSettings(){const s=loadSettings();return `
-<section class="card">
-  <h2>${t("brand_title")}</h2>
-  <form id="brandForm" class="grid grid-2">
-    <label>${t("brand_name")} <input name="brandName" value="${escapeAttr(s.brandName)}"></label>
-    <label>${t("accent_color")} <input name="accent" value="${escapeAttr(s.accent)}" placeholder="#60a5fa"></label>
-    <div class="row gap-s"><button type="submit" class="primary">${t("save")}</button></div>
-  </form>
-</section>`}
-function renderTickerDetail({symbol}){const tk=state.tickers.find(x=>x.symbol===symbol)||{symbol};const notes=state.notes.filter(n=>n.symbol===symbol);const tags=(tk.tags||[]).map(x=>`<span class="badge">#${escapeHtml(x)}</span>`).join(" ");return `
-<section class="card">
-  <div class="row justify-between align-center">
-    <h2>${t("ticker_detail")}: <strong>${escapeHtml(symbol)}</strong></h2>
-    <div class="row gap-s">
-      <button data-chart="${symbol}">${t("open_chart")}</button>
-      <button onclick="window.print()">${t("print_report")}</button>
-    </div>
-  </div>
-  <div class="grid grid-2">
-    <div>
-      <p><strong>회사명:</strong> ${escapeHtml(tk.name||"-")}</p>
-      <p><strong>섹터:</strong> ${escapeHtml(tk.sector||"-")} ${tags}</p>
-      <p><strong>목표가:</strong> ${tk.target ?? "-"}</p>
-      <p><strong>아이디어:</strong><br>${escapeHtml(tk.thesis||"-")}</p>
-      <p><strong>메모:</strong><br>${escapeHtml(tk.notes||"-")}</p>
-    </div>
-    <div>
-      <div id="tvInline" style="width:100%;height:360px;border:1px solid var(--border);border-radius:12px;overflow:hidden"></div>
-      <p class="muted">※ 상단 버튼의 모달 차트로 확대 가능</p>
-    </div>
-  </div>
-  <hr class="divider">
-  <h3>관련 노트</h3>
-  <ul class="list">
-    ${notes.map(n=>`<li><strong>${escapeHtml(n.title)}</strong> · <span class="muted">${humanDate(n.updatedAt)}</span><br>${escapeHtml(n.content)}</li>`).join("") || "<li class='muted'>연결된 노트가 없습니다.</li>"}
-  </ul>
-</section>`}
+  let sortKey='symbol', sortAsc=true, page=1, pageSize=10;
+  function filterSortTickers(){
+    const q=(document.getElementById("watchlistFilter")?.value||'').toLowerCase();
+    const arr=state.tickers.filter(t=>(t.symbol+t.name+t.sector+t.tags.join(',')).toLowerCase().includes(q));
+    return arr.sort((a,b)=>{
+      let va=a[sortKey], vb=b[sortKey];
+      if(sortKey==='target'){ va=va??-Infinity; vb=vb??-Infinity; return sortAsc?(va-vb):(vb-va); }
+      va=(va||'').toString().toLowerCase(); vb=(vb||'').toString().toLowerCase();
+      if(va<vb) return sortAsc?-1:1; if(va>vb) return sortAsc?1:-1; return 0;
+    });
+  }
+  function renderWatchlist(){
+    const tbody=document.querySelector("#watchlistTable tbody"); const rows=filterSortTickers(); const total=rows.length;
+    const totalPages=Math.max(1,Math.ceil(total/pageSize)); if(page>totalPages) page=totalPages;
+    const start=(page-1)*pageSize; const slice=rows.slice(start,start+pageSize);
+    tbody.innerHTML='';
+    slice.forEach(t=>{
+      const tr=document.createElement('tr');
+      tr.innerHTML=`
+        <td><strong>${t.symbol}</strong></td>
+        <td>${t.name||''}</td>
+        <td>${t.sector||''}</td>
+        <td>${(t.tags||[]).map(tag=>'<span class="badge">#'+tag+'</span>').join(' ')}</td>
+        <td class="num">${t.target ?? ''}</td>
+        <td>${t.thesis||''}</td>
+        <td contenteditable data-id="${t.id}" data-field="notes">${t.notes||''}</td>
+        <td><button data-edit="${t.id}">편집</button> <button data-del="${t.id}">삭제</button></td>`;
+      tbody.appendChild(tr);
+    });
+    document.getElementById("watchlistMeta").textContent=`${total}개 · ${page}/${totalPages} 페이지 · 정렬: ${sortKey} ${sortAsc?'↑':'↓'}`;
+    document.getElementById("pageInfo").textContent=`${page} / ${totalPages}`;
+  }
+  function bindWatchlist(){
+    document.getElementById("watchlistFilter").addEventListener("input",()=>{ page=1; renderWatchlist(); });
+    document.getElementById("prevPage").addEventListener("click",()=>{ page=Math.max(1,page-1); renderWatchlist(); });
+    document.getElementById("nextPage").addEventListener("click",()=>{ const totalPages=Math.max(1,Math.ceil(filterSortTickers().length/pageSize)); page=Math.min(totalPages,page+1); renderWatchlist(); });
+    document.querySelectorAll("#watchlistTable th[data-sort]").forEach(th=>th.addEventListener("click",()=>{ const key=th.getAttribute('data-sort'); if(sortKey===key) sortAsc=!sortAsc; else {sortKey=key; sortAsc=true;} renderWatchlist(); }));
+    document.getElementById("watchlistTable").addEventListener("input",(e)=>{ const cell=e.target.closest("[contenteditable]"); if(!cell) return; const id=cell.dataset.id, field=cell.dataset.field; const tk=state.tickers.find(x=>x.id===id); if(!tk) return; tk[field]=cell.innerText.trim(); tk.updatedAt=Date.now(); save(state); });
+    document.getElementById("watchlistTable").addEventListener("click",(e)=>{
+      const delId=e.target.getAttribute('data-del'), editId=e.target.getAttribute('data-edit');
+      if(delId){ if(confirm('삭제하시겠습니까?')){ state.tickers=state.tickers.filter(t=>t.id!==delId); save(state); renderWatchlist(); } }
+      else if(editId){ const t=state.tickers.find(x=>x.id===editId); if(!t) return;
+        const name=prompt('회사명', t.name||'') ?? t.name;
+        const sector=prompt('섹터', t.sector||'') ?? t.sector;
+        const tags=prompt('태그(쉼표 구분)', (t.tags||[]).join(',')) ?? (t.tags||[]).join(',');
+        const target=prompt('목표가', t.target ?? '') ?? (t.target ?? '');
+        const thesis=prompt('아이디어', t.thesis||'') ?? t.thesis;
+        Object.assign(t,{name:name?.trim(),sector:sector?.trim(),tags:(tags||'').split(',').map(s=>s.trim()).filter(Boolean),target:target!==''?Number(target):null,thesis:thesis?.trim(),updatedAt:Date.now()});
+        save(state); renderWatchlist();
+      }
+    });
+    document.getElementById("exportCSV").addEventListener("click",()=>{
+      const headers=["symbol","name","sector","tags","target","thesis","notes"];
+      const rows=state.tickers.map(t=>[t.symbol,t.name||"",t.sector||"", (t.tags||[]).join(";"), t.target??"", (t.thesis||"").replace(/\n/g," "), (t.notes||"").replace(/\n/g," ")]);
+      const csv=[headers.join(","), ...rows.map(r=>r.map(s=>String(s).includes(",")?'"'+String(s).replace(/"/g,'""')+'"':s).join(","))].join("\n");
+      const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"})); a.download="watchlist.csv"; document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },0);
+    });
+    document.getElementById("csvUpload").addEventListener("change",(e)=>{
+      const file=e.target.files[0]; if(!file) return; const reader=new FileReader(); reader.onload=()=>{
+        const text=reader.result; const lines=text.split(/\r?\n/).filter(Boolean); const header=lines.shift().split(",");
+        const idx=name=>header.findIndex(h=>h.trim().toLowerCase()===name);
+        for(const line of lines){ const cols=parseCSV(line); const tk={id:crypto.randomUUID(),symbol:(cols[idx("symbol")]||"").trim().toUpperCase(),name:(cols[idx("name")]||"").trim(),sector:(cols[idx("sector")]||"").trim(),tags:(cols[idx("tags")]||"").split(/[;,]/).map(s=>s.trim()).filter(Boolean),target:(cols[idx("target")]||"")===""?null:Number(cols[idx("target")]),thesis:(cols[idx("thesis")]||"").trim(),notes:(cols[idx("notes")]||"").trim(),createdAt:Date.now(),updatedAt:Date.now()};
+          if(!tk.symbol) continue; const ex=state.tickers.find(x=>x.symbol===tk.symbol);
+          if(ex){ Object.assign(ex,tk,{id:ex.id,createdAt:ex.createdAt,updatedAt:Date.now()}); } else { state.tickers.push(tk); }
+        }
+        save(state); renderWatchlist(); alert("CSV를 불러왔습니다.");
+      }; reader.readAsText(file);
+    });
+  }
 
-/* Post-render */
-let sortKey="symbol",sortAsc=true,page=1,pageSize=10;
-function postRender(route,params){
-  $$(".top-nav a").forEach(a=>a.classList.toggle("active", a.getAttribute("href")==="#"+route));
-  if(route==="/"){bindHome();renderRecentNotes();globalSearch()}
-  else if(route==="/watchlist"){renderWatchlistTable();bindWatchlist()}
-  else if(route==="/notes"){bindNotes();renderNotesList()}
-  else if(route==="/links"){bindLinks();renderLinksList()}
-  else if(route==="/settings"){bindSettings()}
-  else if(route==="/ticker/:symbol"){ensureTV(()=>{new TradingView.widget({symbol:params.symbol,autosize:true,interval:"60",timezone:"Asia/Seoul",theme:(localStorage.getItem("theme")||"dark")==="dark"?"dark":"light",style:"1",locale:"kr",allow_symbol_change:true,container_id:"tvInline"})});document.addEventListener("click",onGlobalClick)}
-}
+  function bindNotes(){ document.getElementById("noteFilter").addEventListener("input", renderNotesList); }
+  function renderNotesList(){
+    const q=(document.getElementById("noteFilter")?.value||'').toLowerCase(); const ul=document.getElementById("notesList"); ul.innerHTML='';
+    state.notes.filter(n=>(n.title+n.content+n.symbol+n.tags.join(',')).toLowerCase().includes(q)).forEach(n=>{
+      const li=document.createElement('li');
+      li.innerHTML='<div class="row justify-between"><div><strong>'+n.title+'</strong> '+(n.symbol?'<span class="badge">'+n.symbol+'</span>':'')+'</div><div class="muted">'+hDate(n.updatedAt)+' · '+(n.tags||[]).map(t=>'#'+t).join(' ')+'</div></div><div class="mt-s">'+n.content.replace(/\n/g,"<br>")+'</div>';
+      ul.appendChild(li);
+    });
+  }
+  function bindLinks(){
+    document.getElementById("addLink").addEventListener("submit",(e)=>{
+      e.preventDefault(); const fd=new FormData(e.target);
+      const link={id:crypto.randomUUID(),title:fd.get("title").trim(),url:fd.get("url").trim(),desc:(fd.get("desc")||"").trim(),tags:(fd.get("tags")||"").split(",").map(s=>s.trim()).filter(Boolean),createdAt:Date.now(),updatedAt:Date.now()};
+      try{ new URL(link.url); }catch{ return alert("URL 형식이 올바르지 않습니다."); }
+      state.links.unshift(link); save(state); renderLinksList(); e.target.reset();
+    });
+  }
+  function renderLinksList(){
+    const ul=document.getElementById("linksList"); ul.innerHTML='';
+    state.links.forEach(l=>{ const li=document.createElement('li'); li.innerHTML='<a href="'+l.url+'" target="_blank" rel="noopener">'+l.title+'</a> '+((l.tags||[]).length?'<span class="muted"> · '+(l.tags||[]).map(t=>'#'+t).join(' ')+'</span>':'')+' <div class="muted">'+(l.desc||"")+'</div>'; ul.appendChild(li); });
+  }
 
-/* Home */
-function bindHome(){
-  $("#quickAddTicker").addEventListener("submit",(e)=>{e.preventDefault();const fd=new FormData(e.target);
-    const tk={id:crypto.randomUUID(),symbol:fd.get("symbol").trim().toUpperCase(),name:fd.get("name").trim(),sector:fd.get("sector").trim(),tags:fd.get("tags").split(",").map(s=>s.trim()).filter(Boolean),target:fd.get("target")?Number(fd.get("target")):null,thesis:fd.get("thesis").trim(),notes:"",createdAt:Date.now(),updatedAt:Date.now()};
-    if(!tk.symbol){alert("티커는 필수입니다.");return}
-    state.tickers.unshift(tk);saveState(state);location.hash="#/ticker/"+encodeURIComponent(tk.symbol);
-  });
-  $("#quickAddNote").addEventListener("submit",(e)=>{e.preventDefault();const fd=new FormData(e.target);
-    const note={id:crypto.randomUUID(),title:fd.get("title").trim(),symbol:(fd.get("symbol")||"").trim().toUpperCase(),tags:fd.get("tags").split(",").map(s=>s.trim()).filter(Boolean),content:fd.get("content").trim(),createdAt:Date.now(),updatedAt:Date.now()};
-    if(!note.title||!note.content){alert("제목과 본문은 필수입니다.");return}
-    state.notes.unshift(note);saveState(state);renderRecentNotes();alert("노트가 추가되었습니다.");
-  });
-  document.addEventListener("keydown",(e)=>{if(e.key==="/"){e.preventDefault();$("#globalSearch").focus()}});
-}
-function renderRecentNotes(){const ul=$("#recentNotes");if(!ul) return; ul.innerHTML="";state.notes.slice(0,8).forEach(n=>{const li=document.createElement("li");li.innerHTML=`<strong>${escapeHtml(n.title)}</strong> <span class="muted">· ${humanDate(n.updatedAt)} ${n.symbol?"· "+escapeHtml(n.symbol):""}</span><br>${escapeHtml(n.content).slice(0,160)}${n.content.length>160?"…":""}`;ul.appendChild(li)})}
-function globalSearch(){const input=$("#globalSearch");if(!input) return; input.addEventListener("input",(e)=>{const q=e.target.value.trim().toLowerCase();const list=$("#searchResults");list.innerHTML="";if(!q) return;
-  const inTickers=state.tickers.filter(t=>(t.symbol+t.name+t.sector+t.tags.join(",")+t.thesis+(t.notes||"")).toLowerCase().includes(q));
-  const inNotes=state.notes.filter(n=>(n.title+n.content+n.symbol+n.tags.join(",")).toLowerCase().includes(q));
-  const inLinks=state.links.filter(l=>(l.title+l.url+(l.desc||"")+l.tags.join(",")).toLowerCase().includes(q));
-  [...inTickers.map(t=>({type:"티커",label:`${t.symbol} ${t.name||""}`,extra:t.sector,id:t.id,link:`#/ticker/${t.symbol}`})),
-   ...inNotes.map(n=>({type:"노트",label:n.title,extra:n.symbol,id:n.id})),
-   ...inLinks.map(l=>({type:"링크",label:l.title,extra:l.url,id:l.id}))].slice(0,20).forEach(r=>{const li=document.createElement("li");li.innerHTML=`<span class="badge">${r.type}</span> <a href="${r.link||'#'}"><strong>${escapeHtml(r.label)}</strong></a> <span class="muted">${escapeHtml(r.extra||"")}</span>`;list.appendChild(li)});
-});}
+  function bindSettings(){
+    document.getElementById("downloadJSON").addEventListener("click",()=>{
+      const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([JSON.stringify(state,null,2)],{type:"application/json"})); a.download="steper-stock.json"; document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },0);
+    });
+    document.getElementById("uploadJSON").addEventListener("change",(e)=>{
+      const f=e.target.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>{
+        try{ const incoming=JSON.parse(r.result); if(!incoming||typeof incoming!=="object") throw new Error("bad"); state=incoming; save(state); alert("JSON을 불러왔습니다."); renderAll(); }
+        catch{ alert("유효한 JSON이 아닙니다."); }
+      }; r.readAsText(f);
+    });
+    document.getElementById("remoteSync").addEventListener("click", async ()=>{
+      try{ const res=await fetch('data/seed.json?ts='+Date.now(),{cache:'no-store'});
+        if(!res.ok) return alert('data/seed.json을 찾지 못했습니다.');
+        const incoming=await res.json();
+        if(!incoming||typeof incoming!=='object') return alert('seed.json 형식 오류');
+        state=incoming; save(state); alert('원격 데이터를 적용했습니다.'); renderAll();
+      }catch(e){ alert('원격 동기화 실패: 네트워크 또는 CORS'); }
+    });
+  }
 
-/* Watchlist */
-function getSortedFilteredTickers(){const q=($("#watchlistFilter")?.value||"").toLowerCase();return state.tickers.filter(t=>(t.symbol+t.name+t.sector+t.tags.join(",")).toLowerCase().includes(q)).sort((a,b)=>{let va=a[sortKey],vb=b[sortKey];if(sortKey==="target"){va=va??-Infinity;vb=vb??-Infinity;return sortAsc?(va-vb):(vb-va)} va=(va||"").toString().toLowerCase();vb=(vb||"").toString().toLowerCase(); if(va<vb) return sortAsc?-1:1; if(va>vb) return sortAsc?1:-1; return 0;})}
-function renderWatchlistTable(){const tbody=$("#watchlistTable tbody");const rows=getSortedFilteredTickers();const total=rows.length;const totalPages=Math.max(1,Math.ceil(total/pageSize));if(page>totalPages) page=totalPages;const start=(page-1)*pageSize;const slice=rows.slice(start,start+pageSize);tbody.innerHTML="";slice.forEach(t=>{const tr=document.createElement("tr");tr.innerHTML=`
-  <td><a href="#/ticker/${t.symbol}"><strong>${escapeHtml(t.symbol)}</strong></a></td>
-  <td>${escapeHtml(t.name||"")}</td>
-  <td>${escapeHtml(t.sector||"")}</td>
-  <td>${(t.tags||[]).map(tag=>`<span class="badge">#${escapeHtml(tag)}</span>`).join(" ")}</td>
-  <td class="num">${t.target ?? ""}</td>
-  <td>${escapeHtml(t.thesis||"")}</td>
-  <td contenteditable data-id="${t.id}" data-field="notes">${escapeHtml(t.notes||"")}</td>
-  <td class="actions"><button data-edit="${t.id}">${t("edit")}</button><button data-chart="${t.symbol}">${t("open_chart")}</button><button data-delete="${t.id}">${t("delete")}</button></td>`;tbody.appendChild(tr)});
-  $("#watchlistMeta").textContent=`${total}개 · ${page}/${totalPages} 페이지 · 정렬: ${sortKey} ${sortAsc?"↑":"↓"}`; $("#pageInfo").textContent=`${page} / ${totalPages}`;
-}
-function bindWatchlist(){ $("#watchlistFilter").addEventListener("input",()=>{page=1;renderWatchlistTable()});
-  $("#prevPage").addEventListener("click",()=>{page=Math.max(1,page-1);renderWatchlistTable()});
-  $("#nextPage").addEventListener("click",()=>{const totalPages=Math.max(1,Math.ceil(getSortedFilteredTickers().length/pageSize));page=Math.min(totalPages,page+1);renderWatchlistTable()});
-  $$("#watchlistTable th[data-sort]").forEach(th=>{th.addEventListener("click",()=>{const key=th.getAttribute("data-sort"); if(sortKey===key) sortAsc=!sortAsc; else {sortKey=key;sortAsc=true} renderWatchlistTable()})});
-  $("#watchlistTable").addEventListener("click",(e)=>{const delId=e.target.getAttribute("data-delete");const editId=e.target.getAttribute("data-edit");const chartSym=e.target.getAttribute("data-chart");
-    if(delId){ if(confirm("삭제하시겠습니까?")){ state.tickers=state.tickers.filter(t=>t.id!==delId); saveState(state); renderWatchlistTable(); } }
-    else if(editId){ const t=state.tickers.find(x=>x.id===editId); if(!t) return;
-      const name=prompt("회사명",t.name||"")??t.name; const sector=prompt("섹터",t.sector||"")??t.sector; const tags=prompt("태그(쉼표 구분)",(t.tags||[]).join(","))??(t.tags||[]).join(","); const target=prompt("목표가",t.target??"")??(t.target??""); const thesis=prompt("아이디어",t.thesis||"")??t.thesis;
-      Object.assign(t,{name:name?.trim(),sector:sector?.trim(),tags:(tags||"").split(",").map(s=>s.trim()).filter(Boolean),target:target!==""?Number(target):null,thesis:thesis?.trim(),updatedAt:Date.now()}); saveState(state); renderWatchlistTable();
-    } else if(chartSym){ openChartModal(chartSym); }
-  });
-  $("#watchlistTable").addEventListener("input",(e)=>{const cell=e.target.closest("[contenteditable]"); if(!cell) return; const id=cell.dataset.id, field=cell.dataset.field; const t=state.tickers.find(x=>x.id===id); if(!t) return; t[field]=cell.innerText.trim(); t.updatedAt=Date.now(); saveState(state); });
-  $("#exportCSV").addEventListener("click",()=>{const headers=["symbol","name","sector","tags","target","thesis","notes"]; const rows=state.tickers.map(t=>[t.symbol,t.name||"",t.sector||"", (t.tags||[]).join(";"), t.target??"", (t.thesis||"").replace(/\n/g," "), (t.notes||"").replace(/\n/g," ")]); const csv=[headers.join(","), ...rows.map(r=>r.map(s=>String(s).includes(",")?`"${String(s).replace(/"/g,'""')}"`:s).join(","))].join("\n"); downloadBlob(new Blob([csv],{type:"text/csv"}),"watchlist.csv") });
-  $("#csvUpload").addEventListener("change",(e)=>{const file=e.target.files[0]; if(!file) return; const reader=new FileReader(); reader.onload=()=>{const text=reader.result; const lines=text.split(/\\r?\\n/).filter(Boolean); const header=lines.shift().split(","); const idx=name=>header.findIndex(h=>h.trim().toLowerCase()===name); const res=[]; for(const line of lines){ const cols=parseCSVLine(line); res.push({id:crypto.randomUUID(),symbol:(cols[idx("symbol")]||"").trim().toUpperCase(),name:(cols[idx("name")]||"").trim(),sector:(cols[idx("sector")]||"").trim(),tags:(cols[idx("tags")]||"").split(/[;,]/).map(s=>s.trim()).filter(Boolean),target:(cols[idx("target")]||"")===""?null:Number(cols[idx("target")]),thesis:(cols[idx("thesis")]||"").trim(),notes:(cols[idx("notes")]||"").trim(),createdAt:Date.now(),updatedAt:Date.now()})}
-    for(const t of res){ if(!t.symbol) continue; const ex=state.tickers.find(x=>x.symbol===t.symbol); if(ex){ Object.assign(ex,t,{id:ex.id,createdAt:ex.createdAt,updatedAt:Date.now()}) } else { state.tickers.push(t) } } saveState(state); renderWatchlistTable(); alert(`CSV에서 ${res.length}개 항목을 처리했습니다.`)}; reader.readAsText(file) });
-}
+  function hDate(ts){ const d=new Date(ts); const p=n=>String(n).padStart(2,"0"); return d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate())+" "+p(d.getHours())+":"+p(d.getMinutes()); }
+  function parseCSV(line){ const out=[]; let cur="",inQ=false; for(let i=0;i<line.length;i++){ const ch=line[i]; if(ch==='"'){ if(inQ && line[i+1]==='"'){ cur+='"'; i++; } else inQ=!inQ; } else if(ch===',' && !inQ){ out.push(cur); cur=""; } else cur+=ch; } out.push(cur); return out; }
 
-/* Notes & Links */
-function bindNotes(){ $("#noteFilter").addEventListener("input", renderNotesList); document.addEventListener("click", onGlobalClick) }
-function renderNotesList(){const q=($("#noteFilter")?.value||"").toLowerCase(); const ul=$("#notesList"); if(!ul) return; ul.innerHTML=""; state.notes.filter(n=>(n.title+n.content+n.symbol+n.tags.join(",")).toLowerCase().includes(q)).forEach(n=>{const li=document.createElement("li"); li.innerHTML=`<div class="row justify-between"><div><strong>${escapeHtml(n.title)}</strong> ${n.symbol?`<a href="#/ticker/${n.symbol}" class="badge">${escapeHtml(n.symbol)}</a>`:""}</div><div class="muted">${humanDate(n.updatedAt)} · ${(n.tags||[]).map(t=>"#"+escapeHtml(t)).join(" ")}</div></div><div class="mt-s">${escapeHtml(n.content).replace(/\\n/g,"<br>")}</div><div class="actions mt-s"><button data-note-edit="${n.id}">${t("edit")}</button><button data-note-delete="${n.id}">${t("delete")}</button></div>`; ul.appendChild(li) })}
-function bindLinks(){ $("#addLink").addEventListener("submit",(e)=>{e.preventDefault(); const fd=new FormData(e.target); const link={id:crypto.randomUUID(),title:fd.get("title").trim(),url:fd.get("url").trim(),desc:(fd.get("desc")||"").trim(),tags:(fd.get("tags")||"").split(",").map(s=>s.trim()).filter(Boolean),createdAt:Date.now(),updatedAt:Date.now()}; try{new URL(link.url)}catch(_){alert("URL 형식이 올바르지 않습니다."); return } state.links.unshift(link); saveState(state); e.target.reset(); renderLinksList(); }); document.addEventListener("click", onGlobalClick) }
-function renderLinksList(){const ul=$("#linksList"); if(!ul) return; ul.innerHTML=""; state.links.forEach(l=>{const li=document.createElement("li"); li.innerHTML=`<a href="${escapeAttr(l.url)}" target="_blank" rel="noopener">${escapeHtml(l.title)}</a> ${(l.tags||[]).length? `<span class="muted"> · ${(l.tags||[]).map(t=>"#"+escapeHtml(t)).join(" ")}</span>`:""} <div class="muted">${escapeHtml(l.desc||"")}</div><div class="actions mt-s"><button data-link-edit="${l.id}">${t("edit")}</button><button data-link-delete="${l.id}">${t("delete")}</button></div>`; ul.appendChild(li) })}
-function bindSettings(){const form=$("#brandForm"); form.addEventListener("submit",(e)=>{e.preventDefault(); const fd=new FormData(form); const s={brandName:fd.get("brandName").trim()||"Steper Stock",accent:fd.get("accent").trim()||"#60a5fa"}; saveSettings(s); applyBrand(s); alert("브랜드 설정을 저장했습니다.") })}
-
-/* Global actions */
-function onGlobalClick(e){
-  const delNote=e.target.getAttribute("data-note-delete"); const editNote=e.target.getAttribute("data-note-edit"); const delLink=e.target.getAttribute("data-link-delete"); const editLink=e.target.getAttribute("data-link-edit"); const chartSym=e.target.getAttribute("data-chart");
-  if(delNote){ if(confirm("노트를 삭제할까요?")){ state.notes=state.notes.filter(n=>n.id!==delNote); saveState(state); renderNotesList() } }
-  else if(editNote){ const n=state.notes.find(x=>x.id===editNote); if(!n) return; const title=prompt("제목",n.title)??n.title; const symbol=prompt("관련 티커",n.symbol||"")??n.symbol; const tags=prompt("태그(쉼표 구분)",(n.tags||[]).join(","))??(n.tags||[]).join(","); const content=prompt("내용",n.content)??n.content; Object.assign(n,{title:title?.trim(),symbol:(symbol||"").trim().toUpperCase(),tags:(tags||"").split(",").map(s=>s.trim()).filter(Boolean),content:content?.trim(),updatedAt:Date.now()}); saveState(state); renderNotesList() }
-  else if(delLink){ if(confirm("링크를 삭제할까요?")){ state.links=state.links.filter(l=>l.id!==delLink); saveState(state); renderLinksList() } }
-  else if(editLink){ const l=state.links.find(x=>x.id===editLink); if(!l) return; const title=prompt("제목",l.title)??l.title; const url=prompt("URL",l.url)??l.url; const desc=prompt("설명",l.desc||"")??l.desc; const tags=prompt("태그(쉼표 구분)",(l.tags||[]).join(","))??(l.tags||[]).join(","); try{new URL(url)}catch(_){alert("URL 형식이 올바르지 않습니다."); return } Object.assign(l,{title:title?.trim(),url:url?.trim(),desc:desc?.trim(),tags:(tags||"").split(",").map(s=>s.trim()).filter(Boolean),updatedAt:Date.now()}); saveState(state); renderLinksList() }
-  else if(chartSym){ openChartModal(chartSym) }
-}
-
-/* TradingView */
-let tvLoaded=false; function ensureTV(cb){ if(tvLoaded) return cb(); const s=document.createElement("script"); s.src="https://s3.tradingview.com/tv.js"; s.onload=()=>{tvLoaded=true; cb()}; document.body.appendChild(s) }
-function openChartModal(symbol){ ensureTV(()=>{ const overlay=document.createElement("div"); overlay.style.cssText="position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;z-index:1000"; const box=document.createElement("div"); box.style.cssText="width:min(96vw,1100px);height:min(80vh,720px);background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;position:relative"; const close=document.createElement("button"); close.textContent="닫기"; close.style.cssText="position:absolute;top:10px;right:10px"; close.onclick=()=>overlay.remove(); box.appendChild(close); const tvDiv=document.createElement("div"); tvDiv.id="tv_"+Date.now(); tvDiv.style.cssText="width:100%;height:100%"; box.appendChild(tvDiv); overlay.appendChild(box); document.body.appendChild(overlay); new TradingView.widget({symbol,autosize:true,interval:"60",timezone:"Asia/Seoul",theme:(localStorage.getItem("theme")||"dark")==="dark"?"dark":"light",style:"1",locale:"kr",allow_symbol_change:true,container_id:tvDiv.id}); })}
-
-/* Utils */
-function escapeHtml(s=""){return s.replace(/[&<>\"']/g, m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
-function escapeAttr(s=""){return escapeHtml(s).replace(/"/g,"&quot;")}
-function humanDate(ts){const d=new Date(ts);const p=n=>String(n).padStart(2,"0");return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`}
-function downloadBlob(blob,filename){const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},0)}
-function parseCSVLine(line){const out=[];let cur="",inQ=false;for(let i=0;i<line.length;i++){const ch=line[i];if(ch==='\"'){if(inQ && line[i+1]==='\"'){cur+='\"';i++}else inQ=!inQ}else if(ch===','&&!inQ){out.push(cur);cur=""}else{cur+=ch}}out.push(cur);return out}
-</script>
+  function renderAll(){ renderWatchlist(); renderRecentNotes(); renderNotesList(); renderLinksList(); }
+  bindDashboard(); bindWatchlist(); bindNotes(); bindLinks(); bindSettings(); renderAll();
+  </script>
 </body>
 </html>
