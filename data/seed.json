@@ -1,6 +1,48 @@
 {
   "tickers": [
     {
+      "id": "5e050ea8-c9fb-4b3f-b4ab-450d2df07991",
+      "symbol": "IONQ",
+      "name": "IONQ INC",
+      "sector": "기술주",
+      "tags": [
+        "NYSEARCA"
+      ],
+      "target": 30,
+      "thesis": "양자컴 \n30오면 삼",
+      "notes": "",
+      "createdAt": 1762067370646,
+      "updatedAt": 1762067370646
+    },
+    {
+      "id": "8e2761c2-5f47-4f96-a735-56383296eda4",
+      "symbol": "BA",
+      "name": "The Boeing Company",
+      "sector": "산업재",
+      "tags": [
+        "NYSEARCA"
+      ],
+      "target": 250,
+      "thesis": "비행기 안타?",
+      "notes": "",
+      "createdAt": 1762067266175,
+      "updatedAt": 1762067266175
+    },
+    {
+      "id": "b82d9302-4c45-4261-ab4b-48893569a3a8",
+      "symbol": "SCHD",
+      "name": "Schwab US Dividend Equity",
+      "sector": "배당주",
+      "tags": [
+        "NYSE"
+      ],
+      "target": 50,
+      "thesis": "고배당주",
+      "notes": "",
+      "createdAt": 1762067048616,
+      "updatedAt": 1762067137483
+    },
+    {
       "id": "8f93f82b-824e-4123-b5bb-f562e0f1827e",
       "symbol": "AVGO",
       "name": "Broadcom",
@@ -189,6 +231,15 @@
     }
   ],
   "links": [
+    {
+      "id": "ed8950c7-83b1-4d9e-99a3-0916aa04fc8a",
+      "title": "META",
+      "url": "https://www.youtube.com/watch?v=Xnuac2MAJ8Q&t=107s",
+      "desc": "실적좆망",
+      "tags": [],
+      "createdAt": 1762067459267,
+      "updatedAt": 1762067459267
+    },
     {
       "id": "00718d1e-fac5-4758-bb02-b130684a9ff1",
       "title": "zeta",
