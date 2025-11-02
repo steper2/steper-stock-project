@@ -1,6 +1,76 @@
 {
   "tickers": [
     {
+      "id": "cc0e3b79-d504-41a5-b187-3ed992a33bf0",
+      "symbol": "BAC",
+      "name": "Bank Of America",
+      "sector": "금융주",
+      "tags": [
+        "NYSEARCA"
+      ],
+      "target": 80,
+      "thesis": "언제 이렇게 올랐지?",
+      "notes": "",
+      "createdAt": 1762083453721,
+      "updatedAt": 1762083453721
+    },
+    {
+      "id": "f43371c4-c055-405e-82e9-9be1686f874a",
+      "symbol": "NFLX",
+      "name": "Netflix",
+      "sector": "기술주",
+      "tags": [
+        "나스닥"
+      ],
+      "target": 1300,
+      "thesis": "10분할 한다는데?",
+      "notes": "",
+      "createdAt": 1762083139865,
+      "updatedAt": 1762083139865
+    },
+    {
+      "id": "d92a7b5e-da70-4d99-90af-5afa48cefb00",
+      "symbol": "RDDT",
+      "name": "REDDIT",
+      "sector": "기술주",
+      "tags": [
+        "NYSEARCA"
+      ],
+      "target": 320,
+      "thesis": "미국 디씨인사이드\n광고 판매 좋을거같음\n진입구간 120",
+      "notes": "",
+      "createdAt": 1762083060841,
+      "updatedAt": 1762083060841
+    },
+    {
+      "id": "01a0385f-3fab-451e-854f-19f657a7b796",
+      "symbol": "AMZN",
+      "name": "Amazon",
+      "sector": "기술주",
+      "tags": [
+        "나스닥"
+      ],
+      "target": 250,
+      "thesis": "저평가?\n모르겠다",
+      "notes": "",
+      "createdAt": 1762082987859,
+      "updatedAt": 1762082987859
+    },
+    {
+      "id": "02780699-7a52-47d5-a8fe-e52d631e79ea",
+      "symbol": "PLTR",
+      "name": "Palantir",
+      "sector": "기술주",
+      "tags": [
+        "나스닥"
+      ],
+      "target": 250,
+      "thesis": "ai기술 끝판아닐까\n100부터 진입 시작",
+      "notes": "",
+      "createdAt": 1762082940046,
+      "updatedAt": 1762082940046
+    },
+    {
       "id": "5e050ea8-c9fb-4b3f-b4ab-450d2df07991",
       "symbol": "IONQ",
       "name": "IONQ INC",
@@ -199,6 +269,26 @@
   ],
   "notes": [
     {
+      "id": "d79c582c-c4e4-4b9a-8a41-60a5a3519b54",
+      "title": "ZETA실적 발표",
+      "symbol": "ZETA",
+      "tags": [],
+      "content": "11.10 3분기 실적발표",
+      "createdAt": 1762083633667,
+      "updatedAt": 1762083633667
+    },
+    {
+      "id": "d898782f-67aa-41c7-bada-e1b24a573368",
+      "title": "AMD실적발표 주간",
+      "symbol": "AMD",
+      "tags": [
+        "나스닥"
+      ],
+      "content": "11.4 3분기 실적 발표",
+      "createdAt": 1762083594288,
+      "updatedAt": 1762083594288
+    },
+    {
       "id": "11b3f55a-c653-4b7a-8c1c-948f10223825",
       "title": "기술주",
       "symbol": "나스닥",
@@ -231,6 +321,17 @@
     }
   ],
   "links": [
+    {
+      "id": "e4e7e848-aa84-486d-9607-547039adb832",
+      "title": "슈카월드11.2",
+      "url": "https://www.youtube.com/watch?v=he2UWVLY5GY",
+      "desc": "풀방",
+      "tags": [
+        "슈카월드"
+      ],
+      "createdAt": 1762083516321,
+      "updatedAt": 1762083516321
+    },
     {
       "id": "ed8950c7-83b1-4d9e-99a3-0916aa04fc8a",
       "title": "META",
