@@ -1,6 +1,34 @@
 {
   "tickers": [
     {
+      "id": "8f93f82b-824e-4123-b5bb-f562e0f1827e",
+      "symbol": "AVGO",
+      "name": "Broadcom",
+      "sector": "기술주",
+      "tags": [
+        "나스닥"
+      ],
+      "target": 450,
+      "thesis": "나만없어 또\n300오면 진입",
+      "notes": "",
+      "createdAt": 1762066211459,
+      "updatedAt": 1762066211459
+    },
+    {
+      "id": "8e766e7b-9a19-4225-831c-8726fa83ebd2",
+      "symbol": "VOO",
+      "name": "S&P500",
+      "sector": "S&P 지수",
+      "tags": [
+        "NYSEARCA"
+      ],
+      "target": 700,
+      "thesis": "장투",
+      "notes": "",
+      "createdAt": 1762065948824,
+      "updatedAt": 1762065948824
+    },
+    {
       "id": "66c4122d-6073-4152-a1f1-9c2a9cfddf3e",
       "symbol": "GOOG",
       "name": "구글",
@@ -115,19 +143,28 @@
     {
       "id": "979c7f61-ddbd-42f1-946c-df40ffe05e66",
       "symbol": "AMD",
-      "name": "",
+      "name": "Advanced Micre Devices",
       "sector": "기술주",
       "tags": [
         "나스닥"
       ],
       "target": 450,
-      "thesis": "엔비디아 가면 감",
+      "thesis": "집중",
       "notes": "",
       "createdAt": 1762059127312,
-      "updatedAt": 1762059127312
+      "updatedAt": 1762066264404
     }
   ],
   "notes": [
+    {
+      "id": "11b3f55a-c653-4b7a-8c1c-948f10223825",
+      "title": "기술주",
+      "symbol": "나스닥",
+      "tags": [],
+      "content": "기술주 고점?",
+      "createdAt": 1762066236565,
+      "updatedAt": 1762066236565
+    },
     {
       "id": "cd652347-a2b3-413d-a929-48301acc2972",
       "title": "웰컴투 개소리 월드",
@@ -152,6 +189,28 @@
     }
   ],
   "links": [
+    {
+      "id": "00718d1e-fac5-4758-bb02-b130684a9ff1",
+      "title": "zeta",
+      "url": "https://www.youtube.com/watch?v=ho3K8Yd2g8E",
+      "desc": "개쳐물림",
+      "tags": [
+        "나스닥"
+      ],
+      "createdAt": 1762066330116,
+      "updatedAt": 1762066330116
+    },
+    {
+      "id": "cb8d3b62-ec0a-42ee-990d-f4237e40f45e",
+      "title": "google",
+      "url": "https://www.youtube.com/watch?v=p-G05PIYcH8",
+      "desc": "함보십시오",
+      "tags": [
+        "구글"
+      ],
+      "createdAt": 1762066050347,
+      "updatedAt": 1762066050347
+    },
     {
       "id": "1beb94db-07e3-4d42-88b5-9cb5128c2d83",
       "title": "AMD",
