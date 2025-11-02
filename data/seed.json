@@ -1,6 +1,20 @@
 {
   "tickers": [
     {
+      "id": "2b6b5004-3954-4bc1-b700-3554fa57388d",
+      "symbol": "ZETA",
+      "name": "ZETA HOLDINGS",
+      "sector": "기술주",
+      "tags": [
+        "나스닥"
+      ],
+      "target": 40,
+      "thesis": "물타타 대주주",
+      "notes": "",
+      "createdAt": 1762061744054,
+      "updatedAt": 1762061744054
+    },
+    {
       "id": "fb9cdd3e-8055-419e-98ce-b8d69ff24657",
       "symbol": "AAPL",
       "name": "사과회사",
