@@ -1,6 +1,90 @@
 {
   "tickers": [
     {
+      "id": "66c4122d-6073-4152-a1f1-9c2a9cfddf3e",
+      "symbol": "GOOG",
+      "name": "구글",
+      "sector": "기술주",
+      "tags": [
+        "나스닥"
+      ],
+      "target": 420,
+      "thesis": "믿고 가는 구글.",
+      "notes": "",
+      "createdAt": 1762062364652,
+      "updatedAt": 1762062364652
+    },
+    {
+      "id": "713a90a6-1dc9-4448-bf85-0674713cf8fc",
+      "symbol": "TSLA",
+      "name": "테슬라",
+      "sector": "기술주",
+      "tags": [
+        "나스닥"
+      ],
+      "target": 500,
+      "thesis": "25년2월에 사서 쳐물렸다가 다 던짐. 나만없어~ 300달러오면 매수 시작",
+      "notes": "",
+      "createdAt": 1762062318362,
+      "updatedAt": 1762062318362
+    },
+    {
+      "id": "f522f1bd-6cde-456f-9795-78da2735d85a",
+      "symbol": "UNH",
+      "name": "유나이티드헬스케어",
+      "sector": "의료,보험",
+      "tags": [
+        "NYSE"
+      ],
+      "target": 500,
+      "thesis": "버핏형이 샀다니까. 근데 난 없음 300에 사서 350에 털고나옴. 기회있으면 다시 매수",
+      "notes": "",
+      "createdAt": 1762062268019,
+      "updatedAt": 1762062268019
+    },
+    {
+      "id": "3b8069b2-6f14-4da1-8ec6-5961db86c094",
+      "symbol": "WMT",
+      "name": "월마트",
+      "sector": "경기방어주",
+      "tags": [
+        "나스닥"
+      ],
+      "target": 130,
+      "thesis": "다 떨어져도 얘는 저점 잘잡으면 계속가져갈만함",
+      "notes": "",
+      "createdAt": 1762062194644,
+      "updatedAt": 1762062194644
+    },
+    {
+      "id": "b5a6abaf-65f3-4707-8a1b-815bf91d4fd2",
+      "symbol": "PATH",
+      "name": "UIPATH",
+      "sector": "기술주",
+      "tags": [
+        "나스닥"
+      ],
+      "target": 25,
+      "thesis": "슈카월드 보고 별생각 없이 매수. 당연히 쳐물림",
+      "notes": "",
+      "createdAt": 1762062150944,
+      "updatedAt": 1762062150944
+    },
+    {
+      "id": "0b4e1408-aed4-4517-a090-48d1d0bc2201",
+      "symbol": "META",
+      "name": "페북,인스타",
+      "sector": "기술주",
+      "tags": [
+        "나스닥"
+      ],
+      "target": 800,
+      "thesis": "25년 3분기 실적 안나옴 폭락중. 매수 기회 , 600달러오면 매수 시작",
+      "notes": "",
+      "createdAt": 1762062069907,
+      "updatedAt": 1762062069907
+    },
+    {
       "id": "2b6b5004-3954-4bc1-b700-3554fa57388d",
       "symbol": "ZETA",
       "name": "ZETA HOLDINGS",
@@ -43,7 +127,42 @@
       "updatedAt": 1762059127312
     }
   ],
-  "notes": [],
-  "links": [],
+  "notes": [
+    {
+      "id": "cd652347-a2b3-413d-a929-48301acc2972",
+      "title": "웰컴투 개소리 월드",
+      "symbol": "",
+      "tags": [
+        "부자됩시다"
+      ],
+      "content": "25년 11월 2일 개설",
+      "createdAt": 1762062471300,
+      "updatedAt": 1762062471300
+    },
+    {
+      "id": "670ff48a-cccf-4b8f-983e-f33ca41a17d0",
+      "title": "11.2",
+      "symbol": "AMD",
+      "tags": [
+        "개소리"
+      ],
+      "content": "당분간은 더 가지않을까?",
+      "createdAt": 1762062106450,
+      "updatedAt": 1762062106450
+    }
+  ],
+  "links": [
+    {
+      "id": "1beb94db-07e3-4d42-88b5-9cb5128c2d83",
+      "title": "AMD",
+      "url": "https://www.youtube.com/watch?v=XtxCby3TrT4&t=36s",
+      "desc": "좀 가자",
+      "tags": [
+        "나스닥"
+      ],
+      "createdAt": 1762062415186,
+      "updatedAt": 1762062415186
+    }
+  ],
   "createdAt": 1762059093769
 }
