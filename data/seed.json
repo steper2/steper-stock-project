@@ -269,6 +269,60 @@
   ],
   "notes": [
     {
+      "id": "bae21edd-8166-4ae2-9836-b1f4052dee2f",
+      "title": "쇼피파이 실적발표",
+      "symbol": "SHOP",
+      "tags": [],
+      "content": "11.4 21:00",
+      "createdAt": 1762086028875,
+      "updatedAt": 1762086028875
+    },
+    {
+      "id": "73def5dc-afcc-4612-a6e1-6993696f1e57",
+      "title": "AMD 실적발표",
+      "symbol": "AMD",
+      "tags": [],
+      "content": "11.4 06:15",
+      "createdAt": 1762085997528,
+      "updatedAt": 1762085997528
+    },
+    {
+      "id": "a2b745ad-4aa0-4946-ac5f-69f470580203",
+      "title": "리얼티인컴 실적발표",
+      "symbol": "O",
+      "tags": [],
+      "content": "화요일 06:05",
+      "createdAt": 1762085967827,
+      "updatedAt": 1762085967827
+    },
+    {
+      "id": "de7b92f0-b66c-432f-9067-89ee92db1338",
+      "title": "팔란티어 실적발표",
+      "symbol": "PLTR",
+      "tags": [],
+      "content": "화요일 06:05",
+      "createdAt": 1762085942275,
+      "updatedAt": 1762085942275
+    },
+    {
+      "id": "100aff75-4655-4d38-ba19-8339665f8fd7",
+      "title": "10월 ISM제조업 PMI",
+      "symbol": "",
+      "tags": [],
+      "content": "11.3 00:00발표",
+      "createdAt": 1762085887454,
+      "updatedAt": 1762085887454
+    },
+    {
+      "id": "098c190a-3569-4489-aa84-840308fe8914",
+      "title": "S&P글로벌 제조업 PMI",
+      "symbol": "",
+      "tags": [],
+      "content": "11.3 23:45 발표",
+      "createdAt": 1762085856408,
+      "updatedAt": 1762085856408
+    },
+    {
       "id": "d79c582c-c4e4-4b9a-8a41-60a5a3519b54",
       "title": "ZETA실적 발표",
       "symbol": "ZETA",
@@ -321,6 +375,46 @@
     }
   ],
   "links": [
+    {
+      "id": "2f111ed9-321c-4236-8e08-02b9c6424dae",
+      "title": "팔란티어",
+      "url": "https://www.youtube.com/watch?v=ZQJ2kIdS0YU",
+      "desc": "모아보자",
+      "tags": [
+        "피터틸"
+      ],
+      "createdAt": 1762158219520,
+      "updatedAt": 1762158219520
+    },
+    {
+      "id": "a7fd7ed8-3f9b-484f-86c7-4b0a5f69fa75",
+      "title": "AMD를 보는 관점",
+      "url": "https://youtu.be/RB3ZC-jlmQQ?si=zSITSjfvo9weR_Rz",
+      "desc": "더 사?",
+      "tags": [],
+      "createdAt": 1762149187815,
+      "updatedAt": 1762149187815
+    },
+    {
+      "id": "56ba023a-f143-47b3-9b91-cda1b4fdd715",
+      "title": "오픈ai는 왜 amd를 선택했을까?",
+      "url": "https://www.youtube.com/watch?v=_d-TdZQQsGo",
+      "desc": "엔비디아 멈춰",
+      "tags": [],
+      "createdAt": 1762084721992,
+      "updatedAt": 1762084721992
+    },
+    {
+      "id": "d2eb67d9-8cc2-4b06-aace-69f1d62ea52f",
+      "title": "AMD",
+      "url": "https://www.youtube.com/watch?v=R-FHQ3FlcOE",
+      "desc": "LISA SU",
+      "tags": [
+        "엔비디아"
+      ],
+      "createdAt": 1762084673145,
+      "updatedAt": 1762084673145
+    },
     {
       "id": "e4e7e848-aa84-486d-9607-547039adb832",
       "title": "슈카월드11.2",
