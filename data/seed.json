@@ -1,6 +1,20 @@
 {
   "tickers": [
     {
+      "id": "679327db-4e34-46d5-b8fd-41b01ffccf61",
+      "symbol": "MP",
+      "name": "MP materials",
+      "sector": "자원",
+      "tags": [
+        "희토류"
+      ],
+      "target": 0,
+      "thesis": "중국이 무기화한 희토류 미국이 가만있을까?",
+      "notes": "",
+      "createdAt": 1762221091238,
+      "updatedAt": 1762221091238
+    },
+    {
       "id": "cc0e3b79-d504-41a5-b187-3ed992a33bf0",
       "symbol": "BAC",
       "name": "Bank Of America",
@@ -268,6 +282,35 @@
     }
   ],
   "notes": [
+    {
+      "id": "08459c67-7047-4554-beda-463a587a6409",
+      "title": "팔란티어 모으는중",
+      "symbol": "PLTR",
+      "tags": [],
+      "content": "마이클 버리 숏침",
+      "createdAt": 1762407999809,
+      "updatedAt": 1762407999809
+    },
+    {
+      "id": "c165c467-295a-47e7-98e7-37d08fb2533f",
+      "title": "ZETA 실적발표",
+      "symbol": "ZETA",
+      "tags": [],
+      "content": "어닝서프라이즈? +19%",
+      "createdAt": 1762404386297,
+      "updatedAt": 1762404386297
+    },
+    {
+      "id": "0866a684-4f8a-4737-997e-9f6e848d0946",
+      "title": "mp",
+      "symbol": "",
+      "tags": [
+        "희토류"
+      ],
+      "content": "2년 장투",
+      "createdAt": 1762221114833,
+      "updatedAt": 1762221114833
+    },
     {
       "id": "bae21edd-8166-4ae2-9836-b1f4052dee2f",
       "title": "쇼피파이 실적발표",
