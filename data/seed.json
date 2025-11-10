@@ -283,6 +283,24 @@
   ],
   "notes": [
     {
+      "id": "e9fdc1d5-3385-40e0-9a67-69dc8eccc384",
+      "title": "미정부 셧다운 해제?",
+      "symbol": "",
+      "tags": [],
+      "content": "해제 기대감으로 풀롱? 킹반영?",
+      "createdAt": 1762734327119,
+      "updatedAt": 1762734327119
+    },
+    {
+      "id": "5bea8eb5-65d8-49ce-bfb9-2d59dd68edf7",
+      "title": "리밸런싱",
+      "symbol": "",
+      "tags": [],
+      "content": "AMD,NVDA,PLTR 추가 매수",
+      "createdAt": 1762525239766,
+      "updatedAt": 1762525239766
+    },
+    {
       "id": "08459c67-7047-4554-beda-463a587a6409",
       "title": "팔란티어 모으는중",
       "symbol": "PLTR",
@@ -418,6 +436,15 @@
     }
   ],
   "links": [
+    {
+      "id": "9283e928-e81f-426f-a9ca-1bec89ea0455",
+      "title": "머니코믹스",
+      "url": "https://www.youtube.com/watch?v=56Zt9xYW6VM",
+      "desc": "예능을 가장한 나쁘지않은 지표",
+      "tags": [],
+      "createdAt": 1762734376244,
+      "updatedAt": 1762734376244
+    },
     {
       "id": "2f111ed9-321c-4236-8e08-02b9c6424dae",
       "title": "팔란티어",
