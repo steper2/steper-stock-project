@@ -283,6 +283,123 @@
   ],
   "notes": [
     {
+      "id": "94ef6cc9-cfa5-418a-a9fe-126d5ed262cd",
+      "title": "11.13 셧다운종료",
+      "symbol": "",
+      "tags": [],
+      "content": "트럼프 일좀해라",
+      "createdAt": 1763182143167,
+      "updatedAt": 1763182143167
+    },
+    {
+      "id": "d04ab69b-4b30-44ff-9d4c-85c2a267554a",
+      "title": "마이클버리 숏충",
+      "symbol": "",
+      "tags": [],
+      "content": "팔란티어 숏 포지션 생각보다 크지않다고 함. 9.2M 풋 옵션 해명. 아직 안팔았으면 수익구간",
+      "createdAt": 1763182121728,
+      "updatedAt": 1763182121728
+    },
+    {
+      "id": "a7dfb6f8-0028-44a4-8e15-218626434fa1",
+      "title": "테슬라 애플 카플레이?",
+      "symbol": "TSLA",
+      "tags": [],
+      "content": "자동차 판매 확대 위해 애플 카플레이 지원 개발",
+      "createdAt": 1763182078560,
+      "updatedAt": 1763182078560
+    },
+    {
+      "id": "800eeaef-29ff-4eff-b0dd-d22c56c84b29",
+      "title": "연준 금리 인하가능성",
+      "symbol": "",
+      "tags": [],
+      "content": "70%->45% 인플레이션 여전히 높고 상승중, 나스닥 11월 3쨋주 -3%",
+      "createdAt": 1763182033709,
+      "updatedAt": 1763182033709
+    },
+    {
+      "id": "3abe05fc-341b-4397-88aa-b462e8405c91",
+      "title": "팔란티어 영국 진출 모색",
+      "symbol": "PLTR",
+      "tags": [],
+      "content": "영국 국방부와 5년 계약 확정중 7.5억 유로 규모",
+      "createdAt": 1763181990663,
+      "updatedAt": 1763181990663
+    },
+    {
+      "id": "58f364e5-bc27-4660-93bb-6ba632d9667a",
+      "title": "미국 상무부",
+      "symbol": "",
+      "tags": [],
+      "content": "11월26일 PCE 물가지수 발표",
+      "createdAt": 1763181941483,
+      "updatedAt": 1763181941483
+    },
+    {
+      "id": "a3650bfe-6fe1-4a3e-ad26-6df36a06ab04",
+      "title": "일론머스크",
+      "symbol": "TSLA",
+      "tags": [],
+      "content": "내년 1분기 GROK5출시 예정",
+      "createdAt": 1763181879536,
+      "updatedAt": 1763181879536
+    },
+    {
+      "id": "df99f991-7419-4203-96a4-7fb20ccbbcca",
+      "title": "드러큰 밀러 13F",
+      "symbol": "AMZN,GOOGL,META",
+      "tags": [],
+      "content": "빅테크 기업,AI반도체,설계,IP 포트폴리오 구성",
+      "createdAt": 1763181853707,
+      "updatedAt": 1763181853707
+    },
+    {
+      "id": "05497bbf-592f-4eee-8b85-c36898e71240",
+      "title": "고용 보고서 발표",
+      "symbol": "",
+      "tags": [],
+      "content": "11월20일에 9월 고용 보고서 발표 예정",
+      "createdAt": 1763181785401,
+      "updatedAt": 1763181785401
+    },
+    {
+      "id": "e3aa9bc9-f20d-45d2-84ce-4f78e10565c5",
+      "title": "구글",
+      "symbol": "GOOGL",
+      "tags": [],
+      "content": "텍사스에 신규 데이터 센터 건걸 400억달러 투자",
+      "createdAt": 1763181761389,
+      "updatedAt": 1763181761389
+    },
+    {
+      "id": "dba817b9-8c76-4e10-b2ff-d5394e8d6f36",
+      "title": "버크셔헤서웨이",
+      "symbol": "GOOGL",
+      "tags": [],
+      "content": "3분기 13F포지션 발표,구글 신규 1,784만주 매수(포트폴리오의 1.6%)",
+      "createdAt": 1763181732682,
+      "updatedAt": 1763181732682
+    },
+    {
+      "id": "d0803c28-a09c-44d1-bfaf-adf182b62af4",
+      "title": "엔비디아 실적 발표",
+      "symbol": "NVDA",
+      "tags": [],
+      "content": "11.19 나스닥의 불꽃반등?",
+      "createdAt": 1763181677284,
+      "updatedAt": 1763181677284
+    },
+    {
+      "id": "22e7a14c-e7e5-4c38-b013-687bcffef7c1",
+      "title": "패닉 오더",
+      "symbol": "",
+      "tags": [],
+      "content": "삼성9월이후 60% 메모리칩 가격 상승",
+      "createdAt": 1763181621937,
+      "updatedAt": 1763181621937
+    },
+    {
       "id": "e9fdc1d5-3385-40e0-9a67-69dc8eccc384",
       "title": "미정부 셧다운 해제?",
       "symbol": "",
