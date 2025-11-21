@@ -79,10 +79,10 @@
         "나스닥"
       ],
       "target": 250,
-      "thesis": "ai기술 끝판아닐까\n100부터 진입 시작",
+      "thesis": "FOMO와서 진입 -10%",
       "notes": "",
       "createdAt": 1762082940046,
-      "updatedAt": 1762082940046
+      "updatedAt": 1763182310093
     },
     {
       "id": "5e050ea8-c9fb-4b3f-b4ab-450d2df07991",
@@ -219,10 +219,10 @@
         "나스닥"
       ],
       "target": 25,
-      "thesis": "슈카월드 보고 별생각 없이 매수. 당연히 쳐물림",
+      "thesis": "정리",
       "notes": "",
       "createdAt": 1762062150944,
-      "updatedAt": 1762062150944
+      "updatedAt": 1763182339116
     },
     {
       "id": "0b4e1408-aed4-4517-a090-48d1d0bc2201",
@@ -282,6 +282,105 @@
     }
   ],
   "notes": [
+    {
+      "id": "be100950-5728-4e2e-8c3c-2ca79f6b9f6e",
+      "title": "나스닥",
+      "symbol": "",
+      "tags": [],
+      "content": "한달동안 하락세,크리스마스 랠리 오는거야?",
+      "createdAt": 1763696135923,
+      "updatedAt": 1763696135923
+    },
+    {
+      "id": "3b29d3be-8df2-48b7-8531-c41651f1579f",
+      "title": "마이클 바",
+      "symbol": "연준",
+      "tags": [],
+      "content": "AI가 GDP에 이득을 가져다준다. 아직 AI가 생산성 향상으로 이어지지는 않았다.",
+      "createdAt": 1763696106435,
+      "updatedAt": 1763696106435
+    },
+    {
+      "id": "a5960bdf-24c5-4fe7-9ce2-f7995c1b5107",
+      "title": "리사 쿡",
+      "symbol": "",
+      "tags": [],
+      "content": "주식 시장 가격이 너무 높다.",
+      "createdAt": 1763696055496,
+      "updatedAt": 1763696055496
+    },
+    {
+      "id": "f292ff26-4473-497c-ac8e-26a83ed78384",
+      "title": "3분기 GDP발표 연기",
+      "symbol": "",
+      "tags": [],
+      "content": "연준은 주식시장 과열이라고 지랄지랄",
+      "createdAt": 1763695997574,
+      "updatedAt": 1763695997574
+    },
+    {
+      "id": "36ed9d69-4ba7-4716-850a-08fcfacb211a",
+      "title": "매출 채권 상승 우려",
+      "symbol": "NVDA",
+      "tags": [],
+      "content": "채권 발행이 많아짐 .",
+      "createdAt": 1763695950827,
+      "updatedAt": 1763695950827
+    },
+    {
+      "id": "ce753100-f6b2-4641-a194-c8c9047b0fda",
+      "title": "S&P500",
+      "symbol": "VOO",
+      "tags": [],
+      "content": "4월 이후 최대폭으로 하락반전",
+      "createdAt": 1763695918631,
+      "updatedAt": 1763695918631
+    },
+    {
+      "id": "f258c369-159a-426d-80b5-ee64fd6e127b",
+      "title": "FOMC 10월 회의록",
+      "symbol": "",
+      "tags": [],
+      "content": "AI 관련 전망에 대한 갑작스러운 재평가가 발생할 경우 주가가 무질서하게 하락할 가능성이 있다고 강조했다.",
+      "createdAt": 1763695879540,
+      "updatedAt": 1763695879540
+    },
+    {
+      "id": "0fae6d0f-ce91-4661-aa65-c635fc1aaa41",
+      "title": "엔비디아 실적 발표",
+      "symbol": "NDVA",
+      "tags": [],
+      "content": "최근 발표\n11월 19, 2025\n주당순이익 / 예측\n1.30 / 1.25\n매출 / 예측\n57.00B / 54.89B",
+      "createdAt": 1763695794472,
+      "updatedAt": 1763695794472
+    },
+    {
+      "id": "086f002a-6522-470f-880d-ce85f88ea895",
+      "title": "엔비디아 실적발표",
+      "symbol": "NVDA",
+      "tags": [],
+      "content": "시장 예상에 따르면 매출은 전년 동기 대비 +56.3% 증가한 548억 달러,\n\n​\n\n주당순이익(EPS)은 +54.3% 상승한 1.25달러로 전망되고 있습니다.\n\n​\n[출처] 엔비디아 3분기 실적발표 언제? 발표 일정·시간·전망 총정리|작성자 1개미",
+      "createdAt": 1763390306215,
+      "updatedAt": 1763390306215
+    },
+    {
+      "id": "75ce56fc-ae4a-4bd5-acdb-bb3d0ec0dffd",
+      "title": "블프 시작",
+      "symbol": "",
+      "tags": [],
+      "content": "11.12~12.9",
+      "createdAt": 1763182611570,
+      "updatedAt": 1763182611570
+    },
+    {
+      "id": "25119070-3ec1-4bd5-9cf9-7c1bd6e50297",
+      "title": "모기지 금리",
+      "symbol": "",
+      "tags": [],
+      "content": "11.19 MBA30년 모기지 금리 (이전 6.34%)",
+      "createdAt": 1763182509831,
+      "updatedAt": 1763182509831
+    },
     {
       "id": "94ef6cc9-cfa5-418a-a9fe-126d5ed262cd",
       "title": "11.13 셧다운종료",
@@ -553,6 +652,17 @@
     }
   ],
   "links": [
+    {
+      "id": "dd8fdcf9-a2b9-4a57-900c-fda2d769d60a",
+      "title": "양자컴",
+      "url": "https://www.youtube.com/watch?v=TUA8F47h2y0",
+      "desc": "구글",
+      "tags": [
+        "GOOGL"
+      ],
+      "createdAt": 1763283993105,
+      "updatedAt": 1763283993105
+    },
     {
       "id": "9283e928-e81f-426f-a9ca-1bec89ea0455",
       "title": "머니코믹스",
